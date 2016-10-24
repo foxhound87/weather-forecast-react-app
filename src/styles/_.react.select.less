@@ -1,0 +1,46 @@
+@import './_.react.select.vars.less';
+@import '~react-select/less/control.less';
+@import '~react-select/less/menu.less';
+@import '~react-select/less/mixins.less';
+@import '~react-select/less/multi.less';
+@import '~react-select/less/spinner.less';
+
+.Select {
+  .Select-control {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    input {
+      color: var(--color-c);
+    }
+  }
+
+  /* clearfix */
+  .Select-value:before,
+  .Select-value:after   { content: " "; display: table; }
+  .Select-value:after   { clear: both; }
+  .Select-value         { *zoom: 1; }
+
+  .Select-value-icon {
+    float: right;
+    border: 0;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+
+  .Select-value-label {
+    float: left;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+
+  .Select-clear-zone {
+    padding-right: 10px;
+  }
+
+  .Select-menu-outer {
+    display: none;
+  }
+}

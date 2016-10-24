@@ -1,0 +1,60 @@
+{
+  "private": true,
+  "name": "weather-forecast-react-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .jsx,.js --ignore-path .gitignore",
+    "watch": "webpack-dev-server --port 8090 --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/foxhound87/weather-forecast-react-app.git"
+  },
+  "keywords": [],
+  "author": "Claudio Savino <claudio.savino@me.com> (https://twitter.com/foxhound87)",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/foxhound87/weather-forecast-react-app#readme",
+  "dependencies": {
+    "animate.css": "3.5.2",
+    "axios": "0.15.2",
+    "classnames": "2.2.5",
+    "lodash": "4.16.4",
+    "mobx": "2.6.0",
+    "mobx-react": "3.5.8",
+    "mobx-react-devtools": "4.2.9",
+    "mobx-react-form": "1.13.4",
+    "moment": "2.15.1",
+    "normalize.css": "5.0.0",
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
+    "react-select": "1.0.0-rc.2",
+    "tachyons": "4.5.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "7.0.0",
+    "babel-loader": "6.2.5",
+    "babel-plugin-transform-class-properties": "6.16.0",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-preset-es2015": "6.16.0",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-stage-0": "6.16.0",
+    "babel-register": "6.16.3",
+    "css-loader": "0.25.0",
+    "eslint": "3.8.0",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.4.1",
+    "html-webpack-plugin": "2.22.0",
+    "less": "2.7.1",
+    "less-loader": "2.2.3",
+    "path": "0.12.7",
+    "postcss-import": "8.1.2",
+    "postcss-loader": "1.0.0",
+    "style-loader": "0.13.1",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.16.2"
+  }
+}

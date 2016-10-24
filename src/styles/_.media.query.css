@@ -1,0 +1,14 @@
+@media screen and (max-width: 30em) {
+  .dn-sm { display: none; }
+  .di-sm { display: inline; }
+  .db-sm { display: block; }
+  .dib-sm { display: inline-block; }
+  .dit-sm { display: inline-table; }
+  .dt-sm { display: table; }
+  .dtc-sm { display: table-cell; }
+  .dt-row-sm { display: table-row; }
+  .dt-row-group-sm { display: table-row-group; }
+  .dt-column-sm { display: table-column; }
+  .dt-column-group-sm { display: table-column-group; }
+  .dt--fixed-sm { table-layout: fixed; width: 100%; }
+}
