@@ -18,9 +18,6 @@ class SearchForm extends MobxReactForm {
   onInit(form) {
     const initial = form.$('search').initial;
 
-    // set initial values to the search field
-    form.$('search').set('value', initial);
-
     // map initial values
     const $values = _.map(initial, 'value');
 
