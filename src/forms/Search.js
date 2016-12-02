@@ -11,22 +11,13 @@ const api = axios.create({
 
 let current = [];
 
-const initial = [{
-  value: 'lisbon',
-  label: 'Lisbon',
-}, {
-  value: 'paris',
-  label: 'Paris',
-}, {
-  value: 'los angeles',
-  label: 'Los Angeles',
-}];
-
 class SearchForm extends MobxReactForm {
 
   @observable items = [];
 
   onInit(form) {
+    const initial = form.$('search').initial;
+
     // set initial values to the search field
     form.$('search').set('value', initial);
 
@@ -47,7 +38,7 @@ class SearchForm extends MobxReactForm {
   }
 
   onChange(values, form) {
-    form.$('search').sync(values);
+    form.$('search').set('value', values);
 
     // parse values from select input
     const $values = _.chain(values)
@@ -75,4 +66,20 @@ class SearchForm extends MobxReactForm {
   }
 }
 
-export default new SearchForm({ fields: ['search'] });
+export default new SearchForm({
+  fields: ['search'],
+
+  values: {
+    search: [{
+      value: 'lisbon',
+      label: 'Lisbon',
+    }, {
+      value: 'paris',
+      label: 'Paris',
+    }, {
+      value: 'los angeles',
+      label: 'Los Angeles',
+    }],
+  },
+
+});
