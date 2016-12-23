@@ -15,27 +15,42 @@ class SearchForm extends MobxReactForm {
 
   @observable items = [];
 
-  onInit(form) {
-    const initial = form.$('search').initial;
+  onInit() {
+    const initial = this.$('search').initial;
 
     // map initial values
     const $values = _.map(initial, 'value');
 
     // get data for initial values
-    form.load($values, form);
+    this.load($values);
   }
 
   @action
-  call(val, form) {
+  call(val) {
     const params = { q: val, units: 'metric', type: 'like' };
 
     api.get('/weather', { params })
-      .then(action(json => form.items.push({ id: val, data: json.data })))
+      .then(action(json => this.items.push({ id: val, data: json.data })))
       .catch(err => console.error(err)); // eslint-disable-line
   }
 
-  onChange(values, form) {
-    form.$('search').set('value', values);
+  @action
+  load(values) {
+    // get only new ones (omit already called)
+    const diff = _.difference(values, current);
+
+    // assign all current values
+    current = values;
+
+    // call api only for new values
+    diff.map(val => this.call(val));
+
+    // remove unwanted items
+    _.remove(this.items, item => !_.includes(current, item.id));
+  }
+
+  onChange = (values) => {
+    this.$('search').set('value', values);
 
     // parse values from select input
     const $values = _.chain(values)
@@ -44,22 +59,7 @@ class SearchForm extends MobxReactForm {
       .value();
 
     // get data for selected values
-    form.load($values, form);
-  }
-
-  @action
-  load(values, form) {
-    // get only new ones (omit already called)
-    const diff = _.difference(values, current);
-
-    // assign all current values
-    current = values;
-
-    // call api only for new values
-    diff.map(val => form.call(val, form));
-
-    // remove unwanted items
-    _.remove(form.items, item => !_.includes(current, item.id));
+    this.load($values);
   }
 }
 

@@ -13,7 +13,7 @@ const SearchForm = ({ form }) => (
       openOnFocus={false}
       name={form.$('search').name}
       value={form.$('search').value}
-      onChange={values => form.onChange(values, form)}
+      onChange={form.onChange}
       placeholder="Search Weather Forecast"
       noResultsText="Type a City..."
     />
